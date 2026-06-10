@@ -1,740 +1,387 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-    <head>
-	<meta name="generator" content="Hugo 0.133.0"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Example description">
-<title>liuxb99</title>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>liuxb99 · 一人科技</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
+<style>
+/* ════════════════════════════════════════════════════════
+   hua su-design（華塑設計）— 旗艦版
+   一人科技整合入口 · All Projects Portal
+   ════════════════════════════════════════════════════════ */
 
-<link rel='canonical' href='http://localhost:1313/'>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter','Segoe UI',system-ui,-apple-system,sans-serif;background:#060a12;color:#f1f5f9;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
 
-<link rel="stylesheet" href="/scss/style.min.0304c6baf04e01a8fe70693791cb744d56a3578a3120a8796cefc66825aa39c7.css"><meta property='og:title' content="liuxb99">
-<meta property='og:description' content="Example description">
-<meta property='og:url' content='http://localhost:1313/'>
-<meta property='og:site_name' content='liuxb99'>
-<meta property='og:type' content='website'><meta property='og:updated_time' content=' 2020-10-09T00:00:00&#43;00:00 '/>
-<meta name="twitter:title" content="liuxb99">
-<meta name="twitter:description" content="Example description"><link rel="alternate" type="application/rss&#43;xml" href="http://localhost:1313/index.xml">
-  
+/* ── Animated BG ── */
+.bg-canvas{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.bg-gradient{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% -10%,rgba(99,102,241,0.08),transparent),radial-gradient(ellipse 60% 40% at 80% 80%,rgba(236,72,153,0.05),transparent),radial-gradient(ellipse 50% 50% at 20% 60%,rgba(6,182,212,0.04),transparent)}
+.bg-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.015) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.015) 1px,transparent 1px);background-size:48px 48px;mask-image:radial-gradient(ellipse 60% 70% at center,black 25%,transparent 70%);-webkit-mask-image:radial-gradient(ellipse 60% 70% at center,black 25%,transparent 70%)}
+.particles{position:absolute;inset:0;overflow:hidden}
+.p{position:absolute;border-radius:50%;background:rgba(99,102,241,0.3);animation:float linear infinite}
+.p:nth-child(1){width:3px;height:3px;left:10%;top:20%;animation-duration:22s;animation-delay:-2s}
+.p:nth-child(2){width:2px;height:2px;left:25%;top:60%;animation-duration:18s;animation-delay:-5s;background:rgba(236,72,153,0.3)}
+.p:nth-child(3){width:4px;height:4px;left:40%;top:10%;animation-duration:25s;animation-delay:0s;background:rgba(6,182,212,0.3)}
+.p:nth-child(4){width:2px;height:2px;left:55%;top:80%;animation-duration:20s;animation-delay:-8s}
+.p:nth-child(5){width:3px;height:3px;left:70%;top:30%;animation-duration:28s;animation-delay:-3s;background:rgba(236,72,153,0.25)}
+.p:nth-child(6){width:2px;height:2px;left:85%;top:50%;animation-duration:16s;animation-delay:-10s;background:rgba(6,182,212,0.25)}
+.p:nth-child(7){width:5px;height:5px;left:15%;top:85%;animation-duration:30s;animation-delay:-6s;background:rgba(139,92,246,0.2)}
+.p:nth-child(8){width:2px;height:2px;left:90%;top:15%;animation-duration:24s;animation-delay:-4s}
+.p:nth-child(9){width:3px;height:3px;left:50%;top:40%;animation-duration:19s;animation-delay:-7s;background:rgba(20,184,166,0.25)}
+.p:nth-child(10){width:4px;height:4px;left:65%;top:70%;animation-duration:26s;animation-delay:-1s;background:rgba(245,158,11,0.2)}
+@keyframes float{0%{transform:translateY(0) translateX(0);opacity:0}10%{opacity:1}90%{opacity:1}100%{transform:translateY(-100vh) translateX(50px);opacity:0}}
 
+/* ── Navbar ── */
+.navbar{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:16px 32px;background:rgba(6,10,18,0.75);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,0.06);transition:transform .3s}
+.navbar.hidden{transform:translateY(-100%)}
+.nav-brand{display:flex;align-items:center;gap:10px;font-size:17px;font-weight:700;letter-spacing:-0.3px}
+.nav-brand .logo{width:32px;height:32px;border-radius:10px;background:linear-gradient(135deg,#6366f1,#8b5cf6);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;color:#fff;flex-shrink:0}
+.nav-brand span{background:linear-gradient(135deg,#a5b4fc,#c4b5fd);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.nav-links{display:flex;align-items:center;gap:24px;font-size:13px;font-weight:500}
+.nav-links a{color:rgba(255,255,255,0.5);transition:color .2s;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1.5px;background:linear-gradient(90deg,#6366f1,#8b5cf6);transition:width .2s}
+.nav-links a:hover{color:#f1f5f9}
+.nav-links a:hover::after{width:100%}
 
-    </head>
-    <body class="">
-    <script>
-        (function() {
-            const colorSchemeKey = 'StackColorScheme';
-            if(!localStorage.getItem(colorSchemeKey)){
-                localStorage.setItem(colorSchemeKey, "auto");
-            }
-        })();
-    </script><script>
-    (function() {
-        const colorSchemeKey = 'StackColorScheme';
-        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
-        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+/* ── Hero ── */
+.hero{position:relative;z-index:1;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 24px 80px}
+.hero-content{max-width:800px;position:relative}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:5px 16px;border-radius:9999px;font-size:12px;font-weight:500;letter-spacing:0.5px;margin-bottom:24px;position:relative;overflow:hidden}
+.hero-badge::before{content:'';position:absolute;inset:0;border-radius:9999px;padding:1px;background:linear-gradient(135deg,rgba(99,102,241,0.3),rgba(236,72,153,0.3),rgba(6,182,212,0.3));-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+.hero-badge-dot{width:6px;height:6px;border-radius:50%;background:#22c55e;animation:pulse-dot 2s ease-in-out infinite}
+@keyframes pulse-dot{0%,100%{opacity:1}50%{opacity:.3}}
+.hero-title{font-size:clamp(36px,7vw,72px);font-weight:900;line-height:1.05;margin-bottom:20px;letter-spacing:-2px}
+.hero-title .line1{display:block;background:linear-gradient(135deg,#e2e8f0,#94a3b8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-title .line2{display:block;background:linear-gradient(135deg,#818cf8,#a78bfa,#f472b6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;background-size:200% auto;animation:shimmer 4s linear infinite}
+@keyframes shimmer{0%{background-position:0% center}50%{background-position:100% center}100%{background-position:0% center}}
+.hero-sub{font-size:clamp(15px,2vw,18px);color:rgba(255,255,255,0.45);max-width:560px;margin:0 auto 32px;line-height:1.8;font-weight:400}
+.hero-actions{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;padding:14px 36px;border:none;border-radius:10px;font-size:15px;font-weight:600;color:#fff;cursor:pointer;transition:all .25s;position:relative;overflow:hidden}
+.btn-primary::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,#6366f1,#8b5cf6);transition:opacity .3s}
+.btn-primary::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,#4f46e5,#7c3aed);opacity:0;transition:opacity .3s}
+.btn-primary:hover::after{opacity:1}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 0 40px rgba(99,102,241,0.3)}
+.btn-primary span,.btn-primary svg{position:relative;z-index:1}
+.btn-secondary{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:10px;font-size:14px;font-weight:500;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);color:rgba(255,255,255,0.6);cursor:pointer;transition:all .25s}
+.btn-secondary:hover{background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.15);color:#f1f5f9;transform:translateY(-2px)}
 
-        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
-            
+/* ── Hero Stats ── */
+.hero-stats{position:relative;z-index:1;display:flex;gap:48px;margin-top:64px;padding-top:40px;border-top:1px solid rgba(255,255,255,0.06);flex-wrap:wrap;justify-content:center}
+.hero-stat{text-align:center}
+.hero-stat-value{font-size:30px;font-weight:800;background:linear-gradient(135deg,#a5b4fc,#c4b5fd);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-stat-label{font-size:12px;color:rgba(255,255,255,0.3);margin-top:2px;text-transform:uppercase;letter-spacing:1px}
 
-            document.documentElement.dataset.scheme = 'dark';
-        } else {
-            document.documentElement.dataset.scheme = 'light';
-        }
-    })();
-</script>
-<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
-    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
-        <span class="hamburger-box">
-            <span class="hamburger-inner"></span>
-        </span>
-    </button>
+/* ── Section ── */
+section{position:relative;z-index:1;padding:100px 24px}
+.section-inner{max-width:1100px;margin:0 auto}
+.section-header{text-align:center;margin-bottom:60px}
+.section-label{display:inline-block;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:2px;margin-bottom:12px;background:linear-gradient(135deg,#6366f1,#8b5cf6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.section-title{font-size:clamp(28px,4vw,40px);font-weight:800;letter-spacing:-1px;margin-bottom:12px}
+.section-desc{font-size:15px;color:rgba(255,255,255,0.4);max-width:500px;margin:0 auto;line-height:1.7}
 
-    <header>
-        
-            
-            <figure class="site-avatar">
-                <a href="/">
-                
-                    
-                    
-                    
-                        
-                        <img src="/img/avatar_hu13739649187745961479.png" width="300"
-                            height="300" class="site-logo" loading="lazy" alt="Avatar">
-                    
-                
-                </a>
-                
-                    <span class="emoji">🍥</span>
-                
-            </figure>
-            
-        
-        
-        <div class="site-meta">
-            <h1 class="site-name"><a href="/">liuxb99</a></h1>
-            <h2 class="site-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
-        </div>
-    </header><ol class="menu-social">
-            
-                <li>
-                    <a 
-                        href='https://github.com/CaiJimmy/hugo-theme-stack'
-                        target="_blank"
-                        title="GitHub"
-                        rel="me"
-                    >
-                        
-                        
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
-</svg>
+/* ── Projects Grid ── */
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(480px,1fr));gap:20px}
+@media(max-width:540px){.projects-grid{grid-template-columns:1fr}}
+.project-card{position:relative;border-radius:16px;overflow:hidden;cursor:pointer;transition:all .4s cubic-bezier(.23,1,.32,1)}
+.project-card:hover{transform:translateY(-6px)}
+.project-card-inner{position:relative;padding:32px;background:linear-gradient(135deg,rgba(255,255,255,0.04),rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.06);border-radius:16px;overflow:hidden;height:100%;transition:border-color .3s}
+.project-card:hover .project-card-inner{border-color:var(--accent,rgba(99,102,241,0.3))}
+.project-card-glow{position:absolute;top:-50%;left:-50%;width:200%;height:200%;border-radius:50%;background:var(--glow,radial-gradient(circle,rgba(99,102,241,0.06),transparent 70%));pointer-events:none;opacity:0;transition:opacity .5s}
+.project-card:hover .project-card-glow{opacity:1}
+.project-card-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:16px;position:relative;z-index:1}
+.project-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.project-status{font-size:11px;font-weight:500;padding:4px 10px;border-radius:9999px;display:flex;align-items:center;gap:5px;background:rgba(34,197,94,0.1);color:#4ade80;border:1px solid rgba(34,197,94,0.15)}
+.project-status-dot{width:5px;height:5px;border-radius:50%;background:#22c55e}
+.project-title{font-size:20px;font-weight:700;margin-bottom:8px;position:relative;z-index:1}
+.project-desc{font-size:14px;color:rgba(255,255,255,0.45);line-height:1.7;margin-bottom:20px;position:relative;z-index:1}
+.project-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px;position:relative;z-index:1}
+.project-tag{font-size:11px;padding:3px 10px;border-radius:9999px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);color:rgba(255,255,255,0.4)}
+.project-links{display:flex;gap:10px;position:relative;z-index:1}
+.project-link{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:500;padding:8px 16px;border-radius:8px;transition:all .2s}
+.project-link.primary{background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.7)}
+.project-link.primary:hover{background:rgba(255,255,255,0.1);color:#f1f5f9}
+.project-link.gh{background:transparent;border:1px solid rgba(255,255,255,0.08);color:rgba(255,255,255,0.4)}
+.project-link.gh:hover{background:rgba(255,255,255,0.05);color:#f1f5f9;border-color:rgba(255,255,255,0.15)}
 
+/* per-project accents */
+.accent-blue{--accent:#3b82f6;--glow:radial-gradient(circle,rgba(59,130,246,0.08),transparent 70%)}
+.accent-blue .project-icon{background:linear-gradient(135deg,rgba(59,130,246,0.2),rgba(59,130,246,0.05));color:#60a5fa}
+.accent-cyan{--accent:#06b6d4;--glow:radial-gradient(circle,rgba(6,182,212,0.08),transparent 70%)}
+.accent-cyan .project-icon{background:linear-gradient(135deg,rgba(6,182,212,0.2),rgba(6,182,212,0.05));color:#22d3ee}
+.accent-purple{--accent:#8b5cf6;--glow:radial-gradient(circle,rgba(139,92,246,0.08),transparent 70%)}
+.accent-purple .project-icon{background:linear-gradient(135deg,rgba(139,92,246,0.2),rgba(139,92,246,0.05));color:#a78bfa}
+.accent-teal{--accent:#14b8a6;--glow:radial-gradient(circle,rgba(20,184,166,0.08),transparent 70%)}
+.accent-teal .project-icon{background:linear-gradient(135deg,rgba(20,184,166,0.2),rgba(20,184,166,0.05));color:#5eead4}
 
+/* ── Divider ── */
+.divider{position:relative;z-index:1;display:flex;align-items:center;justify-content:center;gap:16px;padding:20px 24px}
+.divider-line{flex:1;max-width:200px;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.06),transparent)}
+.divider-icon{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.08)}
 
-                        
-                    </a>
-                </li>
-            
-                <li>
-                    <a 
-                        href='https://twitter.com'
-                        target="_blank"
-                        title="Twitter"
-                        rel="me"
-                    >
-                        
-                        
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
-</svg>
+/* ── Tech Strip ── */
+.tech-strip{position:relative;z-index:1;padding:60px 24px;text-align:center}
+.tech-grid{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;max-width:700px;margin:24px auto 0}
+.tech-item{font-size:12px;font-weight:500;padding:6px 14px;border-radius:9999px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.05);color:rgba(255,255,255,0.35);transition:all .2s;display:flex;align-items:center;gap:6px}
+.tech-item:hover{background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.1);color:rgba(255,255,255,0.6)}
+.tech-dot{width:5px;height:5px;border-radius:50%}
 
+/* ── Footer ── */
+footer{position:relative;z-index:1;padding:40px 24px;text-align:center;border-top:1px solid rgba(255,255,255,0.04)}
+footer p{font-size:12px;color:rgba(255,255,255,0.2);letter-spacing:0.5px}
+footer a{color:rgba(255,255,255,0.35);transition:color .2s}
+footer a:hover{color:rgba(255,255,255,0.6)}
 
+/* ── Animations ── */
+.fade-in{opacity:0;transform:translateY(30px);transition:all .6s cubic-bezier(.23,1,.32,1)}
+.fade-in.visible{opacity:1;transform:translateY(0)}
 
-                        
-                    </a>
-                </li>
-            
-        </ol><ol class="menu" id="main-menu">
-        
-        
-        
-        <li  class='current' >
-            <a href='/' >
-                
-                
-                
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <polyline points="5 12 3 12 12 3 21 12 19 12" />
-  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
-  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
-</svg>
+/* ── Scrollbar ── */
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:#060a12}
+::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.08);border-radius:3px}
+::-webkit-scrollbar-thumb:hover{background:rgba(255,255,255,0.15)}
 
+/* ── Small screens ── */
+@media(max-width:768px){
+.navbar{padding:12px 16px}
+.nav-links{display:none}
+.hero{padding:100px 16px 60px}
+.hero-stats{gap:24px}
+section{padding:60px 16px}
+.section-header{margin-bottom:40px}
+}
+</style>
+</head>
+<body>
 
+<!-- ═══ Animated Background ═══ -->
+<div class="bg-canvas">
+<div class="bg-gradient"></div>
+<div class="bg-grid"></div>
+<div class="particles">
+<span class="p"></span><span class="p"></span><span class="p"></span>
+<span class="p"></span><span class="p"></span><span class="p"></span>
+<span class="p"></span><span class="p"></span><span class="p"></span>
+<span class="p"></span>
+</div>
+</div>
 
-                
-                <span>Home</span>
-            </a>
-        </li>
-        
-        
-        <li >
-            <a href='/about/' >
-                
-                
-                
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="12" cy="7" r="4" />
-  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
-</svg>
+<!-- ═══ Navbar ═══ -->
+<nav class="navbar" id="navbar">
+<a href="#" class="nav-brand"><div class="logo">L</div><span>liuxb99</span></a>
+<div class="nav-links">
+<a href="#projects">專案</a>
+<a href="#tech">技術</a>
+<a href="https://github.com/liuxb99" target="_blank" rel="noopener">GitHub</a>
+<a href="https://github.com/liuxb99" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:8px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);-webkit-text-fill-color:initial">
+<svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>@liuxb99
+</a>
+</div>
+</nav>
 
-
-
-                
-                <span>About</span>
-            </a>
-        </li>
-        
-        
-        <li >
-            <a href='/archives/' >
-                
-                
-                
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <rect x="3" y="4" width="18" height="4" rx="2" />
-  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
-  <line x1="10" y1="12" x2="14" y2="12" />
-</svg>
-
-
-
-                
-                <span>Archives</span>
-            </a>
-        </li>
-        
-        
-        <li >
-            <a href='/search/' >
-                
-                
-                
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="10" cy="10" r="7" />
-  <line x1="21" y1="21" x2="15" y2="15" />
-</svg>
-
-
-
-                
-                <span>Search</span>
-            </a>
-        </li>
-        
-        
-        <li >
-            <a href='/links/' >
-                
-                
-                
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
-  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
-</svg>
-
-
-
-                
-                <span>Links</span>
-            </a>
-        </li>
-        
-        <li class="menu-bottom-section">
-            <ol class="menu">
-                    
-                        <li id="i18n-switch">  
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-  <path d="M4 5h7" />
-  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
-  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
-  <path d="M12 20l4 -9l4 9" />
-  <path d="M19.1 18h-6.2" />
-</svg>
-
-
-
-                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
-                                
-                                    <option value="http://localhost:1313/" selected>English</option>
-                                
-                                    <option value="http://localhost:1313/zh-cn/" >中文</option>
-                                
-                                    <option value="http://localhost:1313/ar/" >عربي</option>
-                                
-                            </select>
-                        </li>
-                    
-                
-
-                
-                    <li id="dark-mode-toggle">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="8" cy="12" r="2" />
-  <rect x="2" y="6" width="20" height="12" rx="6" />
-</svg>
-
-
-
-                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="16" cy="12" r="2" />
-  <rect x="2" y="6" width="20" height="12" rx="6" />
-</svg>
-
-
-
-                        <span>Dark Mode</span>
-                    </li>
-                
-            </ol>
-        </li>
-    </ol>
-</aside>
-
-    <aside class="sidebar right-sidebar sticky">
-        
-            
-                <form action="/search/" class="search-form widget" >
-        <p>
-            <label>Search</label>
-            <input name="keyword" required placeholder="Type something..." />
-        
-            <button title="Search">
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="10" cy="10" r="7" />
-  <line x1="21" y1="21" x2="15" y2="15" />
-</svg>
-
-
-
-            </button>
-        </p>
-    </form>
-            
-        
-            
-                <section class="widget archives">
-        <div class="widget-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-infinity" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <path d="M9.828 9.172a4 4 0 1 0 0 5.656 a10 10 0 0 0 2.172 -2.828a10 10 0 0 1 2.172 -2.828 a4 4 0 1 1 0 5.656a10 10 0 0 1 -2.172 -2.828a10 10 0 0 0 -2.172 -2.828" />
-</svg>
-
-
-
-        </div>
-        <h2 class="widget-title section-title">Archives</h2>
-
-        
-        
-        
-        
-        
-        <div class="widget-archive--list">
-            <div class="archives-year">
-                    <a href="/archives/#2019">
-                        
-                            <span class="year">2019</span>
-                            <span class="count">5</span>
-                        
-                    </a> 
-                </div>
-            
-        </div>
-    </section>
-            
-        
-            
-                <section class="widget tagCloud">
-    <div class="widget-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <line x1="5" y1="9" x2="19" y2="9" />
-  <line x1="5" y1="15" x2="19" y2="15" />
-  <line x1="11" y1="4" x2="7" y2="20" />
-  <line x1="17" y1="4" x2="13" y2="20" />
-</svg>
-
-
-
-    </div>
-    <h2 class="widget-title section-title">Categories</h2>
-
-    <div class="tagCloud-tags">
-        
-            <a href="/categories/test/" class="font_size_2">
-                Test
-            </a>
-        
-            <a href="/categories/syntax/" class="font_size_1">
-                Syntax
-            </a>
-        
-            <a href="/categories/test-with-whitespaces/" class="font_size_1">
-                Test With Whitespaces
-            </a>
-        
-            <a href="/categories/themes/" class="font_size_1">
-                Themes
-            </a>
-        
-    </div>
+<!-- ═══ Hero ═══ -->
+<section class="hero">
+<div class="hero-content">
+<div class="hero-badge"><span class="hero-badge-dot"></span>一人科技 · 開放源碼</div>
+<h1 class="hero-title">
+<span class="line1">打造工程師的</span>
+<span class="line2">數位工具箱</span>
+</h1>
+<p class="hero-sub">CAD 繪圖 · 土木結構 · 經費估算 · 一人公司 — 四個開源專案，全部由一人開發維護，部署於現代化雲端平台。</p>
+<div class="hero-actions">
+<a href="#projects" class="btn-primary"><span>探索專案</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg></a>
+<a href="https://github.com/liuxb99" target="_blank" rel="noopener" class="btn-secondary"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub 首頁</a>
+</div>
+</div>
+<div class="hero-stats">
+<div class="hero-stat"><div class="hero-stat-value">4</div><div class="hero-stat-label">開源專案</div></div>
+<div class="hero-stat"><div class="hero-stat-value">22+</div><div class="hero-stat-label">功能模組</div></div>
+<div class="hero-stat"><div class="hero-stat-value">100%</div><div class="hero-stat-label">瀏覽器執行</div></div>
+<div class="hero-stat"><div class="hero-stat-value">1</div><div class="hero-stat-label">人開發</div></div>
+</div>
 </section>
 
-            
-        
-            
-                <section class="widget tagCloud">
-    <div class="widget-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-tag" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <path d="M11 3L20 12a1.5 1.5 0 0 1 0 2L14 20a1.5 1.5 0 0 1 -2 0L3 11v-4a4 4 0 0 1 4 -4h4" />
-  <circle cx="9" cy="9" r="2" />
-</svg>
+<!-- ═══ Projects ═══ -->
+<section id="projects">
+<div class="section-inner">
+<div class="section-header fade-in">
+<div class="section-label">Projects</div>
+<h2 class="section-title">完整產品線</h2>
+<p class="section-desc">四大開源專案，覆蓋土木工程、CAD 繪圖、全端應用等多個領域。</p>
+</div>
 
+<div class="projects-grid">
 
+<!-- freeCivilcad -->
+<div class="project-card accent-blue fade-in">
+<div class="project-card-inner">
+<div class="project-card-glow"></div>
+<div class="project-card-top">
+<div class="project-icon">🛠️</div>
+<div class="project-status"><span class="project-status-dot"></span>已上線</div>
+</div>
+<h3 class="project-title">FreeCivilCAD</h3>
+<p class="project-desc">瀏覽器中的土木工程 CAD 軟體。支援直線、圓弧、多邊形等 2D 繪圖，搭配智慧捕捉、圖層管理與 AI 命令輸入。</p>
+<div class="project-tags">
+<span class="project-tag">React</span>
+<span class="project-tag">Canvas 2D</span>
+<span class="project-tag">Vite</span>
+<span class="project-tag">AI 命令</span>
+</div>
+<div class="project-links">
+<a href="https://free-civilcad.vercel.app" target="_blank" rel="noopener" class="project-link primary">開啟應用 →</a>
+<a href="https://github.com/liuxb99/freeCivilcad" target="_blank" rel="noopener" class="project-link gh">GitHub</a>
+<a href="https://liuxb99.github.io/freeCivilcad" target="_blank" rel="noopener" class="project-link gh">介紹頁</a>
+</div>
+</div>
+</div>
 
-    </div>
-    <h2 class="widget-title section-title">Tags</h2>
+<!-- AI_CivilTools -->
+<div class="project-card accent-cyan fade-in">
+<div class="project-card-inner">
+<div class="project-card-glow"></div>
+<div class="project-card-top">
+<div class="project-icon">🏗️</div>
+<div class="project-status"><span class="project-status-dot"></span>已上線</div>
+</div>
+<h3 class="project-title">CATii-Design+</h3>
+<p class="project-desc">土木結構一體化設計計算平台。大地工程分析、結構細部設計、自動出圖，支援 ACI/Eurocode/CNS/GB 多國規範。</p>
+<div class="project-tags">
+<span class="project-tag">Next.js</span>
+<span class="project-tag">TypeScript</span>
+<span class="project-tag">Supabase</span>
+<span class="project-tag">DXF</span>
+</div>
+<div class="project-links">
+<a href="https://ai-civiltools.vercel.app" target="_blank" rel="noopener" class="project-link primary">開啟應用 →</a>
+<a href="https://github.com/liuxb99/AI_CivilTools" target="_blank" rel="noopener" class="project-link gh">GitHub</a>
+<a href="https://liuxb99.github.io/AI_CivilTools" target="_blank" rel="noopener" class="project-link gh">介紹頁</a>
+</div>
+</div>
+</div>
 
-    <div class="tagCloud-tags">
-        
-            <a href="/tags/markdown/" class="font_size_2">
-                Markdown
-            </a>
-        
-            <a href="/tags/css/" class="font_size_1">
-                Css
-            </a>
-        
-            <a href="/tags/emoji/" class="font_size_1">
-                Emoji
-            </a>
-        
-            <a href="/tags/html/" class="font_size_1">
-                Html
-            </a>
-        
-            <a href="/tags/privacy/" class="font_size_1">
-                Privacy
-            </a>
-        
-            <a href="/tags/shortcodes/" class="font_size_1">
-                Shortcodes
-            </a>
-        
-            <a href="/tags/tag-with-whitespaces/" class="font_size_1">
-                Tag With Whitespaces
-            </a>
-        
-            <a href="/tags/text/" class="font_size_1">
-                Text
-            </a>
-        
-            <a href="/tags/themes/" class="font_size_1">
-                Themes
-            </a>
-        
-    </div>
+<!-- HubOne / OPC -->
+<div class="project-card accent-purple fade-in">
+<div class="project-card-inner">
+<div class="project-card-glow"></div>
+<div class="project-card-top">
+<div class="project-icon">🚀</div>
+<div class="project-status"><span class="project-status-dot"></span>已上線</div>
+</div>
+<h3 class="project-title">OPC · One Person Company</h3>
+<p class="project-desc">六大業務線整合平台 — 量化交易、土木結構、二手交易、AI 工具、線上簡報、經典遊戲，全部由一人運營。</p>
+<div class="project-tags">
+<span class="project-tag">Next.js</span>
+<span class="project-tag">Prisma</span>
+<span class="project-tag">PostgreSQL</span>
+<span class="project-tag">NextAuth</span>
+</div>
+<div class="project-links">
+<a href="https://hub-one-sooty.vercel.app" target="_blank" rel="noopener" class="project-link primary">開啟應用 →</a>
+<a href="https://github.com/liuxb99/HubOne" target="_blank" rel="noopener" class="project-link gh">GitHub</a>
+<a href="https://liuxb99.github.io/HubOne" target="_blank" rel="noopener" class="project-link gh">介紹頁</a>
+</div>
+</div>
+</div>
+
+<!-- PCCES -->
+<div class="project-card accent-teal fade-in">
+<div class="project-card-inner">
+<div class="project-card-glow"></div>
+<div class="project-card-top">
+<div class="project-icon">💰</div>
+<div class="project-status"><span class="project-status-dot"></span>已上線</div>
+</div>
+<h3 class="project-title">PCCES 經費估算</h3>
+<p class="project-desc">公共工程經費估算系統網頁版。工程預算編列、報價管理、Excel 匯出，C# 核心引擎確保與標準版相容。</p>
+<div class="project-tags">
+<span class="project-tag">Flask</span>
+<span class="project-tag">React</span>
+<span class="project-tag">Python</span>
+<span class="project-tag">C# 引擎</span>
+</div>
+<div class="project-links">
+<a href="https://pcces-web-mauve.vercel.app" target="_blank" rel="noopener" class="project-link primary">開啟應用 →</a>
+<a href="https://github.com/liuxb99/pcces-web" target="_blank" rel="noopener" class="project-link gh">GitHub</a>
+<a href="https://liuxb99.github.io/pcces-web" target="_blank" rel="noopener" class="project-link gh">介紹頁</a>
+</div>
+</div>
+</div>
+
+</div>
+</div>
 </section>
-            
-        
-    </aside>
 
-
-            <main class="main full-width">
-    
-    
-    
-    
-
-    <section class="article-list">
-        
-            
-<article class="has-image">
-    <header class="article-header">
-        <div class="article-image">
-            <a href="/p/markdown-syntax-guide/">
-                <img src="/p/markdown-syntax-guide/pawel-czerwinski-8uZPynIu-rQ-unsplash_hu13459586684579990428.jpg"
-                        srcset="/p/markdown-syntax-guide/pawel-czerwinski-8uZPynIu-rQ-unsplash_hu13459586684579990428.jpg 800w, /p/markdown-syntax-guide/pawel-czerwinski-8uZPynIu-rQ-unsplash_hu3425483315149503896.jpg 1600w"
-                        width="800" 
-                        height="534" 
-                        loading="lazy"
-                        alt="Featured image of post Markdown Syntax Guide" />
-                
-            </a>
-        </div>
-    
-
-    <div class="article-details">
-    
-    <header class="article-category">
-        
-            <a href="/categories/themes/" >
-                Themes
-            </a>
-        
-            <a href="/categories/syntax/" >
-                Syntax
-            </a>
-        
-    </header>
-    
-
-    <div class="article-title-wrapper">
-        <h2 class="article-title">
-            <a href="/p/markdown-syntax-guide/">Markdown Syntax Guide</a>
-        </h2>
-    
-        
-        <h3 class="article-subtitle">
-            Sample article showcasing basic Markdown syntax and formatting for HTML elements.
-        </h3>
-        
-    </div>
-
-    
-    
-    
-    
-    <footer class="article-time">
-        
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
-  <circle cx="18" cy="18" r="4" />
-  <path d="M15 3v4" />
-  <path d="M7 3v4" />
-  <path d="M3 11h16" />
-  <path d="M18 16.496v1.504l1 1" />
-</svg>
-                <time class="article-time--published">Mar 11, 2019</time>
-            </div>
-        
-
-        
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="12" cy="12" r="9" />
-  <polyline points="12 7 12 12 15 15" />
-</svg>
-
-
-
-                <time class="article-time--reading">
-                    3 minute read
-                </time>
-            </div>
-        
-    </footer>
-    
-
-    
+<div class="divider">
+<span class="divider-line"></span>
+<span class="divider-icon"></span>
+<span class="divider-line"></span>
 </div>
 
-</header>
-</article>
-        
-            
-<article class="">
-    <header class="article-header">
-
-    <div class="article-details">
-    
-
-    <div class="article-title-wrapper">
-        <h2 class="article-title">
-            <a href="/p/rich-content/">Rich Content</a>
-        </h2>
-    
-        
-        <h3 class="article-subtitle">
-            A brief description of Hugo Shortcodes
-        </h3>
-        
-    </div>
-
-    
-    
-    
-    
-    <footer class="article-time">
-        
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
-  <circle cx="18" cy="18" r="4" />
-  <path d="M15 3v4" />
-  <path d="M7 3v4" />
-  <path d="M3 11h16" />
-  <path d="M18 16.496v1.504l1 1" />
-</svg>
-                <time class="article-time--published">Mar 10, 2019</time>
-            </div>
-        
-
-        
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="12" cy="12" r="9" />
-  <polyline points="12 7 12 12 15 15" />
-</svg>
-
-
-
-                <time class="article-time--reading">
-                    2 minute read
-                </time>
-            </div>
-        
-    </footer>
-    
-
-    
+<!-- ═══ Tech Stack ═══ -->
+<section id="tech" class="tech-strip">
+<div class="section-header fade-in">
+<div class="section-label">Tech Stack</div>
+<h2 class="section-title">現代化全端技術棧</h2>
+<p class="section-desc">從前端到後端、從資料庫到部署，全部採用當代最佳實踐。</p>
 </div>
-
-</header>
-</article>
-        
-            
-<article class="has-image">
-    <header class="article-header">
-        <div class="article-image">
-            <a href="/p/placeholder-text/">
-                <img src="/p/placeholder-text/matt-le-SJSpo9hQf7s-unsplash_hu2018237820240201481.jpg"
-                        srcset="/p/placeholder-text/matt-le-SJSpo9hQf7s-unsplash_hu2018237820240201481.jpg 800w, /p/placeholder-text/matt-le-SJSpo9hQf7s-unsplash_hu8283485329313927682.jpg 1600w"
-                        width="800" 
-                        height="533" 
-                        loading="lazy"
-                        alt="Featured image of post Placeholder Text" />
-                
-            </a>
-        </div>
-    
-
-    <div class="article-details">
-    
-    <header class="article-category">
-        
-            <a href="/categories/test/" style="background-color: #2a9d8f; color: #fff;">
-                Test
-            </a>
-        
-            <a href="/categories/test-with-whitespaces/" >
-                Test With Whitespaces
-            </a>
-        
-    </header>
-    
-
-    <div class="article-title-wrapper">
-        <h2 class="article-title">
-            <a href="/p/placeholder-text/">Placeholder Text</a>
-        </h2>
-    
-        
-        <h3 class="article-subtitle">
-            Lorem Ipsum Dolor Si Amet
-        </h3>
-        
-    </div>
-
-    
-    
-    
-    
-    <footer class="article-time">
-        
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
-  <circle cx="18" cy="18" r="4" />
-  <path d="M15 3v4" />
-  <path d="M7 3v4" />
-  <path d="M3 11h16" />
-  <path d="M18 16.496v1.504l1 1" />
-</svg>
-                <time class="article-time--published">Mar 09, 2019</time>
-            </div>
-        
-
-        
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="12" cy="12" r="9" />
-  <polyline points="12 7 12 12 15 15" />
-</svg>
-
-
-
-                <time class="article-time--reading">
-                    2 minute read
-                </time>
-            </div>
-        
-    </footer>
-    
-
-    
-        <footer class="article-translations">
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-  <path d="M4 5h7" />
-  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
-  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
-  <path d="M12 20l4 -9l4 9" />
-  <path d="M19.1 18h-6.2" />
-</svg>
-
-
-
-            <div>
-                
-                    <a href="http://localhost:1313/ar/p/%D9%85%D8%AB%D8%A7%D9%84-%D9%86%D8%B5/" class="link">عربي</a>
-                
-            </div>
-        </footer>
-    
+<div class="tech-grid fade-in">
+<span class="tech-item"><span class="tech-dot" style="background:#61dafb"></span>React 18/19</span>
+<span class="tech-item"><span class="tech-dot" style="background:#000"></span>Next.js</span>
+<span class="tech-item"><span class="tech-dot" style="background:#3178c6"></span>TypeScript</span>
+<span class="tech-item"><span class="tech-dot" style="background:#d22b08"></span>Flask</span>
+<span class="tech-item"><span class="tech-dot" style="background:#3776ab"></span>Python</span>
+<span class="tech-item"><span class="tech-dot" style="background:#512bd4"></span>C#</span>
+<span class="tech-item"><span class="tech-dot" style="background:#3ecf8e"></span>Supabase</span>
+<span class="tech-item"><span class="tech-dot" style="background:#2d3748"></span>Prisma</span>
+<span class="tech-item"><span class="tech-dot" style="background:#336791"></span>PostgreSQL</span>
+<span class="tech-item"><span class="tech-dot" style="background:#38bdf8"></span>Tailwind CSS</span>
+<span class="tech-item"><span class="tech-dot" style="background:#646cff"></span>Vite</span>
+<span class="tech-item"><span class="tech-dot" style="background:#000"></span>Vercel</span>
+<span class="tech-item"><span class="tech-dot" style="background:#e11d48"></span>Playwright</span>
+<span class="tech-item"><span class="tech-dot" style="background:#22c55e"></span>Vitest</span>
+<span class="tech-item"><span class="tech-dot" style="background:#8b5cf6"></span>Docker</span>
 </div>
+</section>
 
-</header>
-</article>
-        
-    </section>
-    <nav class='pagination'>
-        
-        
-
-        
-            
-                <span class='page-link current'>1</span>
-                
-            
-            
-                    <a class='page-link' href='/page/2/'>2</a>
-                
-            
-    </nav>
-
-<footer class="site-footer">
-    <section class="copyright">
-        &copy; 
-        
-            2020 - 
-        
-        2024 Example Person
-    </section>
-    
-    <section class="powerby">
-        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
-        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.26.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
-    </section>
+<!-- ═══ Footer ═══ -->
+<footer>
+<p>
+<a href="https://github.com/liuxb99" target="_blank" rel="noopener">@liuxb99</a>
+&nbsp;·&nbsp; 2026 &nbsp;·&nbsp; Built with
+<span style="background:linear-gradient(135deg,#818cf8,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent">hua su-design</span>
+&nbsp;·&nbsp; <a href="https://github.com/liuxb99">Open Source</a>
+</p>
 </footer>
 
-            </main>
-        </div>
-        <script 
-                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
-                
-                >
-            </script><script type="text/javascript" src="/ts/main.js" defer></script>
 <script>
-    (function () {
-        const customFont = document.createElement('link');
-        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+// Intersection Observer for fade-in
+const observer = new IntersectionObserver((entries) => {
+entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible') })
+}, { threshold: 0.1 })
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el))
 
-        customFont.type = "text/css";
-        customFont.rel = "stylesheet";
+// Navbar hide/show on scroll
+let lastScroll = 0
+const navbar = document.getElementById('navbar')
+window.addEventListener('scroll', () => {
+const currentScroll = window.pageYOffset
+navbar.classList.toggle('hidden', currentScroll > lastScroll && currentScroll > 100)
+lastScroll = currentScroll
+})
 
-        document.head.appendChild(customFont);
-    }());
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+a.addEventListener('click', e => {
+e.preventDefault()
+document.querySelector(a.getAttribute('href'))?.scrollIntoView({behavior:'smooth'})
+})
+})
 </script>
-
-    </body>
+</body>
 </html>
